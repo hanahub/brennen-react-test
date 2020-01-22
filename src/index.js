@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import configureStore from './store';
 import Routes from './routes';
 

@@ -13,39 +13,39 @@ class ListPost extends Component {
     var list = this.props.posts.page1.map((item,key)=>{
       return (
         <tr key={key}>
-            <td> {item.userId} </td>
-            <td> {item.id} </td>
-            <td> {item.title} </td>
-            <td> {item.body} </td>
-            <td>
-              <Link to={`/posts/${item.id}`}><button className="btn btn-outline-primary">View</button></Link>
-            </td>
+          <td> {item.userId} </td>
+          <td> {item.id} </td>
+          <td> {item.title} </td>
+          <td> {item.body} </td>
+          <td>
+            <Link to={`/posts/${item.id}`}><button className="btn btn-outline-primary">View</button></Link>
+          </td>
         </tr>
       )
     })
     return (
       <div className="col-md-12 col-lg-12">
-          <div className="card mb-4">
-              <div className="card-block">
-                  <h3 className="card-title">Example Data from jsonplaceholder</h3>
-                  <div className="table-responsive">
-                      <table className="table table-striped">
-                          <thead>
-                              <tr style={{textAlign:'center'}}>
-                                  <th>User Id</th>
-                                  <th>Id</th>
-                                  <th>Title</th>
-                                  <th>Body</th>
-                                  <th>View</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                            {list}
-                          </tbody>
-                      </table>
-                  </div>
-              </div>
+        <div className="card mb-4">
+          <div className="card-block">
+            <h3 className="card-title"></h3>
+            <div className="table-responsive">
+              <table className="table table-striped">
+                <thead>
+                  <tr style={{textAlign:'center'}}>
+                    <th>User Id</th>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Body</th>
+                    <th>View</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {list}
+                </tbody>
+              </table>
+            </div>
           </div>
+        </div>
       </div>
     );
   }
