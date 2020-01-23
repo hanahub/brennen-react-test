@@ -5,7 +5,7 @@ const defaultState = {
   todos: []
 }
 
-export const reducer =  (state = defaultState, action) => {
+export const reducer_todos = (state = defaultState, action) => {
   switch (action.type) {
     case TODOS.LOADING:
       return {
@@ -34,7 +34,7 @@ export const reducer_todo_detail = (state = defaultStateTodoDetail, action) => {
     case TODO_DETAIL.LOADING:
       return {
         ...state,
-        loading: true,
+        loading: true
       };
     case TODO_DETAIL.FETCH_SUCCESS:
       return {

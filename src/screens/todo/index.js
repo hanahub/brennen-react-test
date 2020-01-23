@@ -12,7 +12,7 @@ class TodoList extends Component {
   render() {
     if (this.props.data.loading) return <Loading/>
     
-    let list = this.props.data.todos.map((item, key)=>{
+    let list = this.props.data.todos.map((item, key) => {
       return (
         <tr key={key} className={item.completed ? 'completed' : 'not-completed'}>
           <td> {item.userId} </td>
@@ -20,7 +20,7 @@ class TodoList extends Component {
           <td> <Link to={`/todos/${item.id}`}>{item.title}</Link> </td>
           <td> {item.completed ? 'Yes' : 'No'} </td>
           <td>
-            <Link to={`/todos/${item.id}`}><button className="btn btn-outline-primary">View</button></Link>
+            <Link to={`/todos/${item.id}`}><button className="btn btn-primary">View</button></Link>
           </td>
         </tr>
       )

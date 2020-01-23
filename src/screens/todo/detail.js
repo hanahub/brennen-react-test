@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchTodoDetail } from '../../action/Todo';
 import Loading from '../__layout/loading'
 
@@ -10,7 +11,6 @@ class TodoDetail extends Component {
   }
 
   render() {
-    console.log(this.props)
     if (this.props.data.loading) return <Loading/>
 
     let { todo } = this.props.data;
@@ -21,6 +21,7 @@ class TodoDetail extends Component {
         <p>Todo Id : {todo.id}</p>
         <p>Todo Title : {todo.title}</p>
         <p>Todo Completed : {todo.completed ? 'Yes' : 'No'}</p>
+        <Link to="/"><button className="btn btn-primary">Go Back</button></Link>
       </div>
     );
   }
