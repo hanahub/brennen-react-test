@@ -19,3 +19,11 @@ nav.sidebar {
   padding: 1rem;
   border: .2rem solid #ececec;
 }
+
+.completed {
+  background-color: rgba(117, 228, 81, 0.35) !important;
+}
+
+.not-completed {
+  background-color: rgba(230, 74, 132, 0.35) !important;
+}

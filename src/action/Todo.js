@@ -12,9 +12,9 @@ const fetchFailed = () => ({
   type: TODOS.FETCH_FAILED
 })
 
-const fetchSuccessTodoDetail = (dataTodo) => ({
+const fetchSuccessTodoDetail = (todo) => ({
   type: TODO_DETAIL.FETCH_SUCCESS,
-  dataTodo: dataTodo,
+  todo: todo,
   loading: false
 })
 
@@ -22,7 +22,7 @@ const fetchFailedTodoDetail = () => ({
   type: TODO_DETAIL.FETCH_FAILED
 })
 
-export function fetchTodos(){
+export function fetchTodos() {
   return (dispatch) => {
     axios.get(`${Config.apiUrl}/todos`).then((res) => {
       if (res.status === 200) {
@@ -31,5 +31,18 @@ export function fetchTodos(){
         dispatch(fetchFailed())
       }
     })
+  }
+}
+
+export function fetchTodoDetail(id) {
+  return (dispatch) => {
+    const getTodoById = () => axios.get(`${Config.apiUrl}/todos/${id}`);
+    axios.all([getTodoById()])
+      .then(axios.spread( (res) => (
+        dispatch(fetchSuccessTodoDetail(res.data))
+      )))
+      .catch( (err) => {
+        dispatch(fetchFailedTodoDetail());
+      })
   }
 }

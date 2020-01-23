@@ -2,7 +2,7 @@ import { TODOS, TODO_DETAIL } from '../action/_ActionTypes';
 
 const defaultState = {
   loading: true,
-  TODOS: []
+  todos: []
 }
 
 export const reducer =  (state = defaultState, action) => {
@@ -16,7 +16,7 @@ export const reducer =  (state = defaultState, action) => {
       return {
         ...state,
         loading: false,
-        TODOS: action.TODOS
+        todos: action.todos
       };
     default:
       return state;
@@ -26,10 +26,10 @@ export const reducer =  (state = defaultState, action) => {
 /*  REDUCER FOR POST DETAIL   */
 const defaultStateTodoDetail = {
   loading: true,
-  dataTodo: {}
+  todo: {}
 }
 
-export const reducer_todo_detail =  (state = defaultStateTodoDetail, action) => {
+export const reducer_todo_detail = (state = defaultStateTodoDetail, action) => {
   switch (action.type) {
     case TODO_DETAIL.LOADING:
       return {
@@ -40,7 +40,7 @@ export const reducer_todo_detail =  (state = defaultStateTodoDetail, action) => 
       return {
         ...state,
         loading: false,
-        dataTodo: action.dataTodo.data
+        todo: action.todo
       };
     default:
       return state;
