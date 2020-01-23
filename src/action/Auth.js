@@ -7,10 +7,23 @@ const setUsername = (username) => ({
   username: username
 })
 
+const destroyUsername = () => ({
+  type: AUTH.LOGOUT,
+  loading: false,
+  username: ''
+})
+
+
 export function login(username) {
   return (dispatch) => {
-    console.log("test===", username)
     storage.set('username', username);
     dispatch(setUsername(username))
+  }
+}
+
+export function logout() {
+  return (dispatch) => {
+    storage.set('username', '');
+    dispatch(destroyUsername())
   }
 }

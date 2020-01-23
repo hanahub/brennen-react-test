@@ -27,3 +27,12 @@ nav.sidebar {
 .not-completed {
   background-color: rgba(230, 74, 132, 0.35) !important;
 }
+
+main.login {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.loading {
+  padding-left: 20px;
+}
