@@ -1,4 +1,9 @@
-import { AUTH } from './_ActionTypes';
+import { AUTH } from '../action/_ActionTypes';
+
+const defaultState = {
+  loading: false,
+  username: null
+}
 
 export const reducer_auth = (state = defaultState, action) => {
   switch (action.type) {

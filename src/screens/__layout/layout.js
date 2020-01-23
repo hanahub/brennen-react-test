@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import Sidebar from './sidebar'
+import storage from '../../libs/storage';
 
 class Layout extends Component {
+  
   render() {
+    const user = storage.get('username');
+    
     return (
       <div className="container-fluid" id="wrapper">
         <div className="row">

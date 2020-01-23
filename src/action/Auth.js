@@ -2,7 +2,7 @@ import { AUTH } from './_ActionTypes';
 import storage from '../libs/storage';
 
 const setUsername = (username) => ({
-  type: AUTH.SET_USERNAME,
+  type: AUTH.LOGIN,
   loading: false,
   username: username
 })

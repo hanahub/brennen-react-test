@@ -18,7 +18,8 @@ class Login extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.dispatch(login(this.state.username));
+    this.props.login(this.state.username);
+    this.props.history.push("/");
   }
 
   render() {
@@ -27,7 +28,7 @@ class Login extends Component {
         <div className="mb-4">
           <div className="card-block">
             <h2>Login</h2>
-            <form>
+            <form onSubmit={this.handleSubmit}>
               <div className="form-group">
                 <label className="form-label">Username</label>
                 <input placeholder="Enter username" type="text" className="form-control" value={this.state.username} onChange={this.handleChange} />
