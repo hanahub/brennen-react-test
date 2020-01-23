@@ -1,26 +1,29 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { Provider } from 'react-redux';
+import { mount } from 'enzyme';
 import TodoDetail from './detail';
 
+import configureStore from '../../store';
+
+const store = configureStore();
+
 describe('todos/TodoDetail', () => {
-  let todo;
+  let todoId;
+  let wrapper;
 
   beforeEach(() => {
-    todo = {
-      id: 10,
-      userId: 10,
-      title: 'quis ut nam facilis et officia qui',
-      completed: false
-    };
+    todoId = 10;
+    const match = { params: { todoId: todoId } }
+    wrapper = mount(
+      <Provider store={store}>
+        <TodoDetail match={match} />
+      </Provider>
+    );
   })
 
   it('should render without error', () => {
-    const wrapper = shallow(<TodoDetail todo={todo} />);
-    expect(wrapper.text()).toContain('quis ut nam facilis et officia qui')
+    setTimeout(() => {
+      expect(wrapper.text()).toContain('quis ut nam facilis et officia qui')
+    }, 2000);
   });
-
-  it('should add completed class when todo is completed', () => {
-    const wrapper = shallow(<TodoDetail todo={{ ...todo, completed: true }} />);
-    expect(wrapper.find('.completed')).toHaveLength(1);
-  })
 });
