@@ -55,6 +55,5 @@ class DetailPost extends Component {
     );
   }
 }
-export default connect(
-  state => ({ posts: state.postDetail}),{fetchPagePostDetailComment})
-(DetailPost)
+
+export default connect(state => ({ posts: state.postDetail}), {fetchPagePostDetailComment})(DetailPost)

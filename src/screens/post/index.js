@@ -27,7 +27,6 @@ class ListPost extends Component {
       <div className="col-md-12 col-lg-12">
         <div className="card mb-4">
           <div className="card-block">
-            <h3 className="card-title"></h3>
             <div className="table-responsive">
               <table className="table table-striped">
                 <thead>

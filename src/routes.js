@@ -6,6 +6,7 @@ import Layout from './screens/__layout/layout';
 /* Components Example */
 import ListPost from './screens/post'
 import DetailPost from './screens/post/detail'
+import Login from './screens/login'
 
 
 class Routes extends Component {
@@ -14,6 +15,7 @@ class Routes extends Component {
       <Layout>
         <Switch>
           <Route exact path="/" component={restricted(ListPost)} />
+          <Route exact path="/login" component={restricted(Login)} />
           <Route path="/posts/:postId" component={restricted(DetailPost)} />
         </Switch>
       </Layout>
