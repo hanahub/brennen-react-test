@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { login } from '../../action/Auth';
-
 class Login extends Component {
 
   constructor(props) {
@@ -19,7 +18,7 @@ class Login extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.login(this.state.username);
-    this.props.history.push("/");
+    window.location.href = '/'
   }
 
   render() {
@@ -44,7 +43,7 @@ class Login extends Component {
 
 export default connect(
   state => ({
-    data: state.username
+    data: state
   }), {
     login
   }
