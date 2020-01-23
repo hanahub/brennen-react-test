@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux"
 import { Link } from 'react-router-dom';
-import { fetchPage1 } from '../../action/Page1';
+import { fetchTodos } from '../../action/Todo';
 import Loading from '../__layout/loading'
 
-class ListPost extends Component {
+class ListTodo extends Component {
   componentDidMount(){
-    this.props.fetchPage1();
+    this.props.fetchTodos();
   }
   render() {
-    if(this.props.posts.loading) return  <Loading/>
-    var list = this.props.posts.page1.map((item,key)=>{
+    if(this.props.todos.loading) return <Loading/>
+    var list = this.props.todos.map((item, key)=>{
       return (
         <tr key={key}>
           <td> {item.userId} </td>
           <td> {item.id} </td>
           <td> {item.title} </td>
-          <td> {item.body} </td>
+          <td> {item.completed} </td>
           <td>
-            <Link to={`/posts/${item.id}`}><button className="btn btn-outline-primary">View</button></Link>
+            <Link to={`/todos/${item.id}`}><button className="btn btn-outline-primary">View</button></Link>
           </td>
         </tr>
       )
@@ -52,8 +52,8 @@ class ListPost extends Component {
 
 export default connect(
   state => ({
-    posts: state.page1
+    todos: state.todos
   }),{
-    fetchPage1
+    fetchTodos
   }
-)(ListPost)
+)(ListTodo)

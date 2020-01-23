@@ -1,22 +1,22 @@
-import { PAGE1, POST_DETAIL } from '../action/_ActionTypes';
+import { TODOS, TODO_DETAIL } from '../action/_ActionTypes';
 
 const defaultState = {
   loading: true,
-  page1: []
+  TODOS: []
 }
 
 export const reducer =  (state = defaultState, action) => {
   switch (action.type) {
-    case PAGE1.LOADING:
+    case TODOS.LOADING:
       return {
         ...state,
         loading: true,
       };
-    case PAGE1.FETCH_SUCCESS:
+    case TODOS.FETCH_SUCCESS:
       return {
         ...state,
         loading: false,
-        page1: action.page1
+        TODOS: action.TODOS
       };
     default:
       return state;
@@ -24,25 +24,23 @@ export const reducer =  (state = defaultState, action) => {
 }
 
 /*  REDUCER FOR POST DETAIL   */
-const defaultStatePostDetail = {
+const defaultStateTodoDetail = {
   loading: true,
-  dataPost:{},
-  dataComments:[]
+  dataTodo: {}
 }
 
-export const reducer_post_detail =  (state = defaultStatePostDetail, action) => {
+export const reducer_todo_detail =  (state = defaultStateTodoDetail, action) => {
   switch (action.type) {
-    case POST_DETAIL.LOADING:
+    case TODO_DETAIL.LOADING:
       return {
         ...state,
         loading: true,
       };
-    case POST_DETAIL.FETCH_SUCCESS:
+    case TODO_DETAIL.FETCH_SUCCESS:
       return {
         ...state,
         loading: false,
-        dataPost: action.dataPost.data,
-        dataComments: action.dataComments.data
+        dataTodo: action.dataTodo.data
       };
     default:
       return state;
